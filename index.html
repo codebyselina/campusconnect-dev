@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusConnect Dev — Developer Onboarding Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Top Navigation ───────────────────────────────────────────── -->
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="topbar__logo">&#9670;</span>
+      <span class="topbar__name">CampusConnect <strong>Dev</strong></span>
+    </div>
+    <nav class="topbar__nav">
+      <span class="badge">v1.0</span>
+      <span class="topbar__tag">IBM Bob 2.0 Hackathon</span>
+    </nav>
+  </header>
+
+  <!-- ── Hero Banner ──────────────────────────────────────────────── -->
+  <section class="hero">
+    <h1 class="hero__title">Developer Onboarding Assistant</h1>
+    <p class="hero__subtitle">
+      Drop in your project details and get an instant onboarding report —
+      project structure, setup steps, key files, and beginner-friendly tasks.
+    </p>
+  </section>
+
+  <!-- ── Main Workspace ───────────────────────────────────────────── -->
+  <main class="workspace">
+
+    <!-- Left: Input Panel -->
+    <aside class="panel panel--input">
+      <h2 class="panel__title">
+        <span class="panel__icon">&#128196;</span> Project Details
+      </h2>
+
+      <div class="field">
+        <label class="field__label" for="projectName">Project Name <span class="required">*</span></label>
+        <input
+          class="field__input"
+          id="projectName"
+          type="text"
+          placeholder="e.g. ecommerce-platform"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="projectType">Project Type <span class="required">*</span></label>
+        <select class="field__input field__select" id="projectType">
+          <option value="">— select a type —</option>
+          <option value="react">React / Frontend SPA</option>
+          <option value="node">Node.js / Express Backend</option>
+          <option value="python">Python / Django or Flask</option>
+          <option value="java">Java / Spring Boot</option>
+          <option value="generic">Other / Generic</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="projectDesc">Project Description <span class="required">*</span></label>
+        <textarea
+          class="field__input field__textarea"
+          id="projectDesc"
+          rows="4"
+          placeholder="Briefly describe what this project does, its purpose, and any relevant context…"
+        ></textarea>
+      </div>
+
+      <p class="error-msg" id="errorMsg" aria-live="polite"></p>
+
+      <!-- Primary action -->
+      <button class="btn-analyze" id="analyzeBtn">
+        <span class="btn-analyze__icon">&#9654;</span> Analyze Project
+      </button>
+
+      <!-- Secondary actions group -->
+      <div class="action-group">
+        <p class="action-group__label">Additional tools</p>
+
+        <button class="btn-secondary btn-health" id="healthBtn">
+          <span class="btn-secondary__icon btn-health__icon">&#10003;</span>
+          <span class="btn-secondary__text">Run Health Check</span>
+        </button>
+        <p class="error-msg error-msg--sm" id="healthErrorMsg" aria-live="polite"></p>
+
+        <button class="btn-secondary btn-explorer" id="explorerBtn">
+          <span class="btn-secondary__icon btn-explorer__icon">&#128193;</span>
+          <span class="btn-secondary__text">Explore Structure</span>
+        </button>
+        <p class="error-msg error-msg--sm" id="explorerErrorMsg" aria-live="polite"></p>
+
+        <button class="btn-secondary btn-scan" id="scanBtn">
+          <span class="btn-secondary__icon btn-scan__icon">&#128269;</span>
+          <span class="btn-secondary__text">Scan Project</span>
+        </button>
+        <p class="error-msg error-msg--sm" id="scanErrorMsg" aria-live="polite"></p>
+      </div>
+    </aside>
+
+    <!-- Right: Report Output -->
+    <section class="panel panel--report" id="reportPanel" aria-live="polite">
+      <div class="report-placeholder" id="reportPlaceholder">
+        <span class="placeholder__icon">&#128203;</span>
+        <p>Fill in the project details on the left and click <strong>Analyze Project</strong> to generate your onboarding report.</p>
+      </div>
+      <div class="report-content" id="reportContent" hidden></div>
+      <div class="health-content" id="healthContent" hidden></div>
+      <div class="explorer-content" id="explorerContent" hidden></div>
+      <div class="scan-content" id="scanContent" hidden></div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <p>CampusConnect Dev &mdash; Built for the <strong>IBM Bob 2.0 Hackathon</strong> &nbsp;|&nbsp; v1.0</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
